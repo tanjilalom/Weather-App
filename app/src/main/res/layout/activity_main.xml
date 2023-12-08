@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Weather App"
+        android:text="Current Weather"
         android:textColor="@color/black"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -21,28 +21,28 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="549dp"
-        android:gravity="center"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/citynameid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="70dp"
             android:layout_marginBottom="20dp"
             android:hint="City Name"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
 
-        <EditText
-            android:id="@+id/countrynameid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="30dp"
-            android:hint="Country Code Name"
-            android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
 
         <Button
@@ -56,13 +56,14 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="247dp">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/infoviewid"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleviewid"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/black" />
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
 
         </ScrollView>
 
