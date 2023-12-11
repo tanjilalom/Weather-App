@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,8 +27,11 @@ import org.json.JSONObject;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText cityid, countryid;
-    TextView recycleviewid;
+
+    int[] img = {
+            R.drawable.humidity, R.drawable.thermometer, R.drawable.wind,};
+    EditText cityid;
+    RecyclerView recycleviewid;
     Button getinfo;
     private final String url = "https://api.openweathermap.org/data/2.5/weather";
     //private final String url = "https://disease.sh/v3/covid-19/all";
@@ -43,6 +48,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getinfo = findViewById(R.id.infogetbtn);
 
         getinfo.setOnClickListener(this);
+
+
+        /*myAdapter = new MyAdapter(this, cityid);
+
+        recycleviewid.setAdapter(myAdapter);
+
+        int spanCount = 3;
+        GridLayoutManager layoutManager = new GridLayoutManager(this, spanCount);
+        recycleviewid.setLayoutManager(layoutManager);*/
     }
 
     @Override
@@ -130,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-                        recycleviewid.setText("Tempreture: " + df.format(xtemp) + " °C" + "\n" +
+                        /*recycleviewid.setText("Tempreture: " + df.format(xtemp) + " °C" + "\n" +
                                     "Feels Like: " + df.format(fl) + " °C" + "\n" +
                                     "Min Temperature: " + df.format(mntemp) + " °C" + "\n" +
                                     "Max Temperature: " + df.format(mxtemp) + " °C" + "\n" +
@@ -138,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     "Humidity: " + df.format(humidity) + " %" + "\n" +
                                     "Weather Description: " + (weatherDescription) + ""
 
-                        );
+                        );*/
 
                     } catch (JSONException e) {
                         throw new RuntimeException(e);}
