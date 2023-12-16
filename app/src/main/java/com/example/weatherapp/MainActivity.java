@@ -28,6 +28,8 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    TextView a, b, c, d, e, f, g, h, i, j;
+
     int[] img = {
             R.drawable.humidity, R.drawable.thermometer, R.drawable.wind,};
     EditText cityid;
@@ -46,16 +48,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cityid = findViewById(R.id.citynameid);
         getinfo = findViewById(R.id.infogetbtn);
 
+        a = findViewById(R.id.weatherdegree);
+        b = findViewById(R.id.situationfeelslike);
+        c = findViewById(R.id.windvalue);
+        d = findViewById(R.id.humidityvalue);
+        e = findViewById(R.id.pressurevalue);
+
+
         getinfo.setOnClickListener(this);
 
-
-        /*myAdapter = new MyAdapter(this, cityid);
-
-        recycleviewid.setAdapter(myAdapter);
-
-        int spanCount = 3;
-        GridLayoutManager layoutManager = new GridLayoutManager(this, spanCount);
-        recycleviewid.setLayoutManager(layoutManager);*/
     }
 
     @Override
@@ -131,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         int humidity = mainObject.getInt("humidity");
 
                         // Extracted weather related data
-                        String weatherDescription = weatherObject.getString("description");
+                        String weatherDescription = weatherObject.getString("main");
                         String weatherIcon = weatherObject.getString("icon");
 
 
@@ -140,6 +141,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         double fl = feelsLike - 273.15;
                         double mxtemp = tempMax - 273.15;
                         double mntemp = tempMin - 273.15;
+
+
+                        a.setText((df.format(xtemp) + "°C" + "\n");
+
+                                c.setText(df.format(xtemp) + "km/h" + "\n";
+                                        d.setText(df.format(humidity) + "%" + "\n";
+                                                e.setText(df.format(pressure) + "mBar";
+
+
+
 
 
 
