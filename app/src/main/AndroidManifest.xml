@@ -20,9 +20,6 @@
             android:name=".weathermain1"
             android:exported="false" />
         <activity
-            android:name=".weatherbydefault"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity

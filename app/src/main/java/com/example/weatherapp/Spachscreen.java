@@ -37,7 +37,7 @@ public class Spachscreen extends AppCompatActivity {
 
     private void startup() {
         Intent intent;
-        intent = new Intent(this, MainActivity.class);
+        intent = new Intent(this, weathermain1.class);
         startActivity(intent);
         finish();
     }

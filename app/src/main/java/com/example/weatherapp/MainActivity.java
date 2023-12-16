@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         cityid = findViewById(R.id.citynameid);
-        recycleviewid = findViewById(R.id.recycleviewid);
         getinfo = findViewById(R.id.infogetbtn);
 
         getinfo.setOnClickListener(this);
