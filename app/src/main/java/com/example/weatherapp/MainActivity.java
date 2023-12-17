@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final String url = "https://api.openweathermap.org/data/2.5/weather";
     //private final String url = "https://disease.sh/v3/covid-19/all";
     private final String appid = "1a844b383d1efd4353c8ee2463e63dcd";
-    DecimalFormat df = new DecimalFormat("#.##");
+    DecimalFormat df = new DecimalFormat("#");
 
 
     @Override
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         c = findViewById(R.id.windvalue);
         d = findViewById(R.id.humidityvalue);
         e = findViewById(R.id.pressurevalue);
+        f = findViewById(R.id.visibilityvalue);
 
 
         getinfo.setOnClickListener(this);
@@ -87,40 +88,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         JSONObject jsonObject = new JSONObject(response); // Convert the response String to JSONObject
                         JSONObject mainObject = jsonObject.getJSONObject("main");
                         JSONArray weatherArray = jsonObject.getJSONArray("weather");
+                        int visibilityObject = jsonObject.getInt("visibility");
+                        Log.d("tanjil", String.valueOf(visibilityObject));
 
                         JSONObject weatherObject = null;
                         if (weatherArray.length() > 0) {
                             weatherObject = weatherArray.getJSONObject(0);
 
-                            String weatherDescription = weatherObject.getString("description");
+                            String weatherDescription = weatherObject.getString("main");
                             String weatherIcon = weatherObject.getString("icon");
 
-                            // Handle the extracted weather data as needed
-                            // For instance, log the values
-                            Log.d("WeatherData", "Weather Description: " + weatherDescription);
-                            Log.d("WeatherData", "Weather Icon: " + weatherIcon);
-                            // You can also update your UI or perform other operations with this data
                         }
 
 
-                        /*try {
-                            JSONArray weatherArray = jsonObject.getJSONArray("weather");
-
-                            // Assuming there's only one object in the "weather" array
-                            if (weatherArray.length() > 0) {
-                                JSONObject weatherObject = weatherArray.getJSONObject(0);
-
-                                String weatherDescription = weatherObject.getString("description");
-                                String weatherIcon = weatherObject.getString("icon");
-
-                                // Handle the extracted weather data as needed
-                                // For instance, log the values
-                                Log.d("WeatherData", "Weather Description: " + weatherDescription);
-                                Log.d("WeatherData", "Weather Icon: " + weatherIcon);
-                                // You can also update your UI or perform other operations with this data
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();}*/
 
 
                         // Extract temperature related data
@@ -135,19 +115,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         String weatherDescription = weatherObject.getString("main");
                         String weatherIcon = weatherObject.getString("icon");
 
+                        //Extract visibility related Data
 
 
+
+
+
+                        //Math
                         double xtemp = temp - 273.15;
                         double fl = feelsLike - 273.15;
-                        double mxtemp = tempMax - 273.15;
-                        double mntemp = tempMin - 273.15;
 
 
-                        a.setText((df.format(xtemp) + "°C" + "\n");
 
-                                c.setText(df.format(xtemp) + "km/h" + "\n";
-                                        d.setText(df.format(humidity) + "%" + "\n";
-                                                e.setText(df.format(pressure) + "mBar";
+
+                        //setText the data
+                        a.setText(df.format(xtemp) + "°c");
+                        b.setText(weatherDescription);
+                        //c.setText();
+                        d.setText(df.format(humidity) + "%");
+                        e.setText(df.format(pressure) + "mBar");
+                        f.setText(String.valueOf(visibilityObject));
 
 
 
@@ -164,6 +151,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         );*/
 
+
+
+
+
                     } catch (JSONException e) {
                         throw new RuntimeException(e);}
 
@@ -179,4 +170,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         }
-    }
+
+        public void main()
+        {
+
+        }
+
+
+
+
+
+
+
+
+
+}
