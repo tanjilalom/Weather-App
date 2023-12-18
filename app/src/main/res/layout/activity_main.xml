@@ -2,12 +2,12 @@
 
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -118,10 +118,19 @@
 
                     <TextView
                         android:id="@+id/windvalue"
-                        android:layout_width="105dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="3 Km/h"
+                        android:text="5 Km/h"
                         android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/winddirection"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="north"
+                        android:textSize="17sp"
+                        />
 
 
                 </LinearLayout>
@@ -153,7 +162,7 @@
 
                     <TextView
                         android:id="@+id/humidityvalue"
-                        android:layout_width="105dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="3 Km/h"
                         android:textSize="25dp" />
@@ -198,7 +207,7 @@
 
                     <TextView
                         android:id="@+id/pressurevalue"
-                        android:layout_width="105dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="3 Km/h"
                         android:textSize="25dp" />
@@ -233,7 +242,7 @@
 
                     <TextView
                         android:id="@+id/visibilityvalue"
-                        android:layout_width="105dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="3 Km/h"
                         android:textSize="25dp" />

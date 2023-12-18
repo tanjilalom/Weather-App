@@ -51,9 +51,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         a = findViewById(R.id.weatherdegree);
         b = findViewById(R.id.situationfeelslike);
         c = findViewById(R.id.windvalue);
-        d = findViewById(R.id.humidityvalue);
-        e = findViewById(R.id.pressurevalue);
-        f = findViewById(R.id.visibilityvalue);
+        d = findViewById(R.id.winddirection);
+        e = findViewById(R.id.humidityvalue);
+        f = findViewById(R.id.pressurevalue);
+        g = findViewById(R.id.visibilityvalue);
 
 
         getinfo.setOnClickListener(this);
@@ -73,69 +74,78 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             /*if (!country.equals("")) {
                 tempurl = url + "?q=" + city + "," + country + "&appid=" + appid;
-                Log.d("tanjil", tempurl);
+
             } else {*/
-                tempurl = url + "?q=" + city + "&appid=" + appid;
-                Log.d("tanjil", tempurl);
-            }
+            tempurl = url + "?q=" + city + "&appid=" + appid;
+
+        }
 
 
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, tempurl, new Response.Listener<String>() {
-                @SuppressLint("SetTextI18n")
-                @Override
-                public void onResponse(String response) {
-                    try {
-                        JSONObject jsonObject = new JSONObject(response); // Convert the response String to JSONObject
-                        JSONObject mainObject = jsonObject.getJSONObject("main");
-                        JSONArray weatherArray = jsonObject.getJSONArray("weather");
-                        int visibilityObject = jsonObject.getInt("visibility");
-                        Log.d("tanjil", String.valueOf(visibilityObject));
-
-                        JSONObject weatherObject = null;
-                        if (weatherArray.length() > 0) {
-                            weatherObject = weatherArray.getJSONObject(0);
-
-                            String weatherDescription = weatherObject.getString("main");
-                            String weatherIcon = weatherObject.getString("icon");
-
-                        }
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, tempurl, new Response.Listener<String>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response); // Convert the response String to JSONObject
+                    JSONObject mainObject = jsonObject.getJSONObject("main");
+                    JSONArray weatherArray = jsonObject.getJSONArray("weather");
+                    int visibilityObject = jsonObject.getInt("visibility");
+                    JSONObject windObject = jsonObject.getJSONObject("wind");
 
 
+                    JSONObject weatherObject = null;
+                    if (weatherArray.length() > 0) {
+                        weatherObject = weatherArray.getJSONObject(0);
 
-
-                        // Extract temperature related data
-                        double temp = mainObject.getDouble("temp");
-                        double feelsLike = mainObject.getDouble("feels_like");
-                        double tempMin = mainObject.getDouble("temp_min");
-                        double tempMax = mainObject.getDouble("temp_max");
-                        int pressure = mainObject.getInt("pressure");
-                        int humidity = mainObject.getInt("humidity");
-
-                        // Extracted weather related data
                         String weatherDescription = weatherObject.getString("main");
                         String weatherIcon = weatherObject.getString("icon");
-
-                        //Extract visibility related Data
-
+                    }
 
 
+                    // Extract temperature related data
+                    double temp = mainObject.getDouble("temp");
+                    double feelsLike = mainObject.getDouble("feels_like");
+                    int pressure = mainObject.getInt("pressure");
+                    int humidity = mainObject.getInt("humidity");
+
+                    // Extracted weather related data
+                    String weatherDescription = weatherObject.getString("main");
+                    String weatherIcon = weatherObject.getString("icon");
+
+                    //Extracted wind related data
+                    double windSpeed = windObject.getDouble("speed");
+                    Log.d("tanjil", String.valueOf(windSpeed));
+
+                    // Extract wind degree from the "wind" object
+                    int windDegree = windObject.getInt("deg");
+
+                    // Determine wind direction
+                    String windDirection = getWindDirection(windDegree);
 
 
-                        //Math
-                        double xtemp = temp - 273.15;
-                        double fl = feelsLike - 273.15;
 
 
 
 
-                        //setText the data
-                        a.setText(df.format(xtemp) + "°c");
-                        b.setText(weatherDescription);
-                        //c.setText();
-                        d.setText(df.format(humidity) + "%");
-                        e.setText(df.format(pressure) + "mBar");
-                        f.setText(String.valueOf(visibilityObject));
 
+
+
+                    //Temp Math
+                    double xtemp = temp - 273.15;
+                    double fl = feelsLike - 273.15;
+
+                    //visibility math
+                    double visibilityObject1 = (visibilityObject / 1000.0); // Using 1000.0 to ensure floating-point division
+
+
+                    //setText the data
+                    a.setText(df.format(xtemp) + "°c");
+                    b.setText(weatherDescription);
+                    c.setText(String.valueOf(df.format(windSpeed)) + " Km/h");
+                    d.setText(windDirection);
+                    e.setText(df.format(humidity) + "%");
+                    f.setText(df.format(pressure) + " mb");
+                    g.setText(String.valueOf(visibilityObject1) + " km");
 
 
 
@@ -152,29 +162,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         );*/
 
 
-
-
-
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);}
-
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
                 }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(MainActivity.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
-                }
-            });
-            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-            requestQueue.add(stringRequest);
 
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MainActivity.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
 
+    }
+
+    // Method to determine wind direction based on degrees
+    private static String getWindDirection(int degree) {
+        if (degree >= 337.5 || degree < 22.5) {
+            return "North";
+        } else if (degree >= 22.5 && degree < 67.5) {
+            return "Northeast";
+        } else if (degree >= 67.5 && degree < 112.5) {
+            return "East";
+        } else if (degree >= 112.5 && degree < 157.5) {
+            return "Southeast";
+        } else if (degree >= 157.5 && degree < 202.5) {
+            return "South";
+        } else if (degree >= 202.5 && degree < 247.5) {
+            return "Southwest";
+        } else if (degree >= 247.5 && degree < 292.5) {
+            return "West";
+        } else {
+            return "Northwest";
         }
+    }
 
-        public void main()
-        {
-
-        }
 
 
 
