@@ -108,7 +108,7 @@
                     android:padding="15dp">
 
                     <TextView
-                        android:id="@+id/wind"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Wind"
@@ -152,7 +152,7 @@
                     android:padding="15dp">
 
                     <TextView
-                        android:id="@+id/humidity"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Humidity"
@@ -197,7 +197,7 @@
                     android:padding="15dp">
 
                     <TextView
-                        android:id="@+id/pressure"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Pressure"
@@ -232,7 +232,6 @@
                     android:padding="15dp">
 
                     <TextView
-                        android:id="@+id/visibility"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Visibility"
@@ -271,7 +270,6 @@
                 android:padding="15dp">
 
                 <TextView
-                    android:id="@+id/sunrise_set"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sunrise Sunset"
@@ -287,11 +285,12 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/sunriseid"
                     android:layout_width="105dp"
                     android:layout_height="wrap_content"
                     android:text="6:35 Am"
                     android:textSize="25dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     />
 
 
@@ -303,6 +302,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/sunsetid"
                     android:layout_width="105dp"
                     android:layout_height="wrap_content"
                     android:text="6:35 Am"

@@ -25,6 +25,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         e = findViewById(R.id.humidityvalue);
         f = findViewById(R.id.pressurevalue);
         g = findViewById(R.id.visibilityvalue);
+        h = findViewById(R.id.sunriseid);
+        i = findViewById(R.id.sunsetid);
 
 
         getinfo.setOnClickListener(this);
@@ -91,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     JSONArray weatherArray = jsonObject.getJSONArray("weather");
                     int visibilityObject = jsonObject.getInt("visibility");
                     JSONObject windObject = jsonObject.getJSONObject("wind");
+                    JSONObject timeObject = jsonObject.getJSONObject("country");
 
 
                     JSONObject weatherObject = null;
@@ -108,19 +114,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     int pressure = mainObject.getInt("pressure");
                     int humidity = mainObject.getInt("humidity");
 
+
                     // Extracted weather related data
                     String weatherDescription = weatherObject.getString("main");
                     String weatherIcon = weatherObject.getString("icon");
 
+
                     //Extracted wind related data
                     double windSpeed = windObject.getDouble("speed");
-                    Log.d("tanjil", String.valueOf(windSpeed));
 
                     // Extract wind degree from the "wind" object
                     int windDegree = windObject.getInt("deg");
 
                     // Determine wind direction
                     String windDirection = getWindDirection(windDegree);
+
+
+
+                    Long sunrise = Long.valueOf(timeObject.getString("sunrise"));
+                    Long sunset = Long.valueOf(timeObject.getString("sunset"));
+
+                    // Convert timestamps to Date objects
+                    Date sunriseDate = new Date(sunrise * 1000L);
+                    Date sunsetDate = new Date(sunset * 1000L);
+
+
+                    // Format the dates for display
+                    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+
+                    // Print the formatted sunrise and sunset times
+                    //System.out.println("Sunrise time: " + sdf.format(sunriseDate));
+                    //System.out.println("Sunset time: " + sdf.format(sunsetDate));
+
 
 
 
@@ -148,6 +173,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     e.setText(df.format(humidity) + "%");
                     f.setText(df.format(pressure) + " mb");
                     g.setText(String.valueOf(visibilityObject1) + " km");
+                    h.setText(sdf.format(sunriseDate));
+                    i.setText(sdf.format(sunsetDate));
 
 
 
@@ -187,6 +214,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             return "Northwest";
         }
+    }
+
+
+    public static void main(String[] args) {
+        //long sunriseTimestamp = 1701822425L; // Replace this with the actual sunrise timestamp
+        //long sunsetTimestamp = 1701861091L;  // Replace this with the actual sunset timestamp
+
+
+
+
+
+
     }
 
 
