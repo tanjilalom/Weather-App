@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     int visibilityObject = jsonObject.getInt("visibility");
                     JSONObject windObject = jsonObject.getJSONObject("wind");
                     JSONObject timeObject = jsonObject.getJSONObject("country");
+                    Log.d("tanjil" , String.valueOf(timeObject));
 
 
                     JSONObject weatherObject = null;
@@ -131,9 +132,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-                    Long sunrise = Long.valueOf(timeObject.getLong("sunrise"));
+                    /*Long sunrise = Long.valueOf(timeObject.getLong("sunrise"));
                     Long sunset = Long.valueOf(timeObject.getLong("sunset"));
-                    Log.d("tanjil", String.valueOf(sunrise));
+                    Log.d("tanjil", String.valueOf(sunrise));*/
 
                     // Convert timestamps to Date objects
                    // Date sunriseDate = new Date((long) (sunrise * 1000));
