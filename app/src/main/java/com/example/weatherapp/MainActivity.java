@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String weatherIcon = weatherObject.getString("icon");
 
                     //Extracted wind related data
-                    double windSpeed = windObject.getDouble("speed");
+                    double windSpeed = 3.9; windObject.getDouble("speed");
                     Log.d("tanjil", String.valueOf(windSpeed));
 
                     // Extract wind degree from the "wind" object
