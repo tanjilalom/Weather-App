@@ -131,16 +131,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-                    Long sunrise = Long.valueOf(timeObject.getString("sunrise"));
-                    Long sunset = Long.valueOf(timeObject.getString("sunset"));
+                    Long sunrise = Long.valueOf(timeObject.getLong("sunrise"));
+                    Long sunset = Long.valueOf(timeObject.getLong("sunset"));
+                    Log.d("tanjil", String.valueOf(sunrise));
 
                     // Convert timestamps to Date objects
-                    Date sunriseDate = new Date(sunrise * 1000L);
-                    Date sunsetDate = new Date(sunset * 1000L);
+                   // Date sunriseDate = new Date((long) (sunrise * 1000));
+                    //Date sunsetDate = new Date((long) (sunset * 1000));
 
 
                     // Format the dates for display
-                    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+                    //SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+                    //Log.d("tanjil", sdf.format(sunriseDate));
 
                     // Print the formatted sunrise and sunset times
                     //System.out.println("Sunrise time: " + sdf.format(sunriseDate));
@@ -173,8 +175,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     e.setText(df.format(humidity) + "%");
                     f.setText(df.format(pressure) + " mb");
                     g.setText(String.valueOf(visibilityObject1) + " km");
-                    h.setText(sdf.format(sunriseDate));
-                    i.setText(sdf.format(sunsetDate));
+                    //h.setText(sdf.format(sunriseDate));
+                    //i.setText(sdf.format(sunsetDate));
 
 
 
@@ -217,16 +219,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public static void main(String[] args) {
-        //long sunriseTimestamp = 1701822425L; // Replace this with the actual sunrise timestamp
-        //long sunsetTimestamp = 1701861091L;  // Replace this with the actual sunset timestamp
 
-
-
-
-
-
-    }
 
 
 
