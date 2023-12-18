@@ -129,13 +129,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-
                     //Temp Math
                     double xtemp = temp - 273.15;
                     double fl = feelsLike - 273.15;
 
                     //visibility math
                     double visibilityObject1 = (visibilityObject / 1000.0); // Using 1000.0 to ensure floating-point division
+
+
+
 
 
                     //setText the data
@@ -148,18 +150,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     g.setText(String.valueOf(visibilityObject1) + " km");
 
 
-
-
-
-                        /*recycleviewid.setText("Tempreture: " + df.format(xtemp) + " °C" + "\n" +
-                                    "Feels Like: " + df.format(fl) + " °C" + "\n" +
-                                    "Min Temperature: " + df.format(mntemp) + " °C" + "\n" +
-                                    "Max Temperature: " + df.format(mxtemp) + " °C" + "\n" +
-                                    "Pressure: " + df.format(pressure) + " mb" + "\n" +
-                                    "Humidity: " + df.format(humidity) + " %" + "\n" +
-                                    "Weather Description: " + (weatherDescription) + ""
-
-                        );*/
 
 
                 } catch (JSONException e) {
