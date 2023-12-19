@@ -286,24 +286,23 @@
 
                 <TextView
                     android:id="@+id/sunriseid"
-                    android:layout_width="105dp"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:text="6:35 Am"
-                    android:textSize="25dp"
                     android:layout_marginBottom="20dp"
-                    />
+                    android:text="6:35 Am"
+                    android:textSize="25dp" />
 
 
                 <TextView
                     android:id="@+id/s2"
                     android:layout_width="105dp"
                     android:layout_height="wrap_content"
-                    android:text="Sunrise"
+                    android:text="Sunset"
                     android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/sunsetid"
-                    android:layout_width="105dp"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:text="6:35 Am"
                     android:textSize="25dp" />

@@ -96,8 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     JSONArray weatherArray = jsonObject.getJSONArray("weather");
                     int visibilityObject = jsonObject.getInt("visibility");
                     JSONObject windObject = jsonObject.getJSONObject("wind");
-                    JSONObject timeObject = jsonObject.getJSONObject("country");
-                    Log.d("tanjil" , String.valueOf(timeObject));
+                    JSONObject timeObject = jsonObject.getJSONObject("sys");
 
 
                     JSONObject weatherObject = null;
@@ -132,18 +131,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-                    /*Long sunrise = Long.valueOf(timeObject.getLong("sunrise"));
-                    Long sunset = Long.valueOf(timeObject.getLong("sunset"));
-                    Log.d("tanjil", String.valueOf(sunrise));*/
+                    int sunrise = timeObject.getInt("sunrise");
+                    int sunset = timeObject.getInt("sunset");
+
 
                     // Convert timestamps to Date objects
-                   // Date sunriseDate = new Date((long) (sunrise * 1000));
-                    //Date sunsetDate = new Date((long) (sunset * 1000));
+                    Date sunriseDate = new Date(sunrise * 1000);
+                    Date sunsetDate = new Date (sunset * 1000);
+
 
 
                     // Format the dates for display
-                    //SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
-                    //Log.d("tanjil", sdf.format(sunriseDate));
+                    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a", Locale.getDefault());
+                    Log.d("tanjil", sdf.format(sunriseDate));
 
                     // Print the formatted sunrise and sunset times
                     //System.out.println("Sunrise time: " + sdf.format(sunriseDate));
@@ -176,8 +176,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     e.setText(df.format(humidity) + "%");
                     f.setText(df.format(pressure) + " mb");
                     g.setText(String.valueOf(visibilityObject1) + " km");
-                    //h.setText(sdf.format(sunriseDate));
-                    //i.setText(sdf.format(sunsetDate));
+                    h.setText(sdf.format(sunriseDate));
+                    i.setText(sdf.format(sunsetDate));
 
 
 
