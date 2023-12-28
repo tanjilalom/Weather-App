@@ -154,9 +154,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-
-
-
                     //Temp Math
                     double xtemp = temp - 273.15;
                     double fl = feelsLike - 273.15;

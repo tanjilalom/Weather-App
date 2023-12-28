@@ -70,14 +70,12 @@
                     android:id="@+id/weatherdegree"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:text="30°c"
                     android:textSize="75sp" />
 
                 <TextView
                     android:id="@+id/situationfeelslike"
                     android:layout_width="105dp"
                     android:layout_height="wrap_content"
-                    android:text="Sunny"
                     android:textSize="20dp" />
 
 
@@ -111,7 +109,6 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Wind"
                         android:textSize="20dp"
                         android:layout_marginBottom="15dp"
                         />
@@ -120,7 +117,6 @@
                         android:id="@+id/windvalue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="5 Km/h"
                         android:textSize="25dp" />
 
                     <TextView
@@ -128,7 +124,6 @@
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="north"
                         android:textSize="17sp"
                         />
 
@@ -155,7 +150,6 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Humidity"
                         android:textSize="20dp"
                         android:layout_marginBottom="15dp"
                         />
@@ -164,7 +158,6 @@
                         android:id="@+id/humidityvalue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="3 Km/h"
                         android:textSize="25dp" />
 
 
@@ -200,7 +193,6 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Pressure"
                         android:textSize="20dp"
                         android:layout_marginBottom="15dp"
                         />
@@ -209,7 +201,6 @@
                         android:id="@+id/pressurevalue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="3 Km/h"
                         android:textSize="25dp" />
 
 
@@ -234,7 +225,6 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Visibility"
                         android:textSize="20dp"
                         android:layout_marginBottom="15dp"
                         />
@@ -243,7 +233,6 @@
                         android:id="@+id/visibilityvalue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="3 Km/h"
                         android:textSize="25dp" />
 
 
