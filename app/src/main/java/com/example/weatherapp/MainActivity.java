@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String windDirection = getWindDirection(windDegree);
 
 
-
+                    //Extracted time related data
                     int sunrise = timeObject.getInt("sunrise");
                     int sunset = timeObject.getInt("sunset");
 

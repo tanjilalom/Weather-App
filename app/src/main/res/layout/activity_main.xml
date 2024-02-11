@@ -7,6 +7,9 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -112,6 +115,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
+                        android:text="Wind Speed"
                         android:layout_marginBottom="15dp"
                         />
 
@@ -153,6 +157,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
+                        android:text="Humidity"
                         android:layout_marginBottom="15dp"
                         />
 
@@ -196,6 +201,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
+                        android:text="Pressure"
                         android:layout_marginBottom="15dp"
                         />
 
@@ -228,6 +234,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
+                        android:text="Visibillity"
                         android:layout_marginBottom="15dp"
                         />
 
