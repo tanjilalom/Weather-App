@@ -26,6 +26,7 @@ import org.json.JSONObject;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 
@@ -132,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     //Extracted time related data
                     int sunrise = timeObject.getInt("sunrise");
+                    Log.d("tanjil", String.valueOf(sunrise));
                     int sunset = timeObject.getInt("sunset");
 
 
@@ -142,8 +144,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                     // Format the dates for display
-                    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a", Locale.getDefault());
+                    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:a", Locale.getDefault());
                     Log.d("tanjil", sdf.format(sunriseDate));
+
+
+
+
 
                     // Print the formatted sunrise and sunset times
                     //System.out.println("Sunrise time: " + sdf.format(sunriseDate));
