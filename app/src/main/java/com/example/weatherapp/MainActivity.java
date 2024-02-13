@@ -132,31 +132,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                     //Extracted time related data
-                    int sunrise = timeObject.getInt("sunrise");
-                    Log.d("tanjil", String.valueOf(sunrise));
-                    int sunset = timeObject.getInt("sunset");
+                    int sunrise1 = timeObject.getInt("sunrise");
+                    Log.d("tanjil", String.valueOf(sunrise1));
+                    int sunset1 = timeObject.getInt("sunset");
 
 
                     // Convert timestamps to Date objects
-                    Date sunriseDate = new Date(sunrise * 1000);
-                    Date sunsetDate = new Date (sunset * 1000);
+                    Date sunriseDate = new Date(sunrise1 * 1000);
+                    Log.d("tj", String.valueOf(sunriseDate));
+                    Date sunsetDate = new Date (sunset1 * 1000);
 
 
 
                     // Format the dates for display
-                    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:a", Locale.getDefault());
-                    Log.d("tanjil", sdf.format(sunriseDate));
-
-
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    Log.d("sdf", sdf.format(sunsetDate));
 
 
 
                     // Print the formatted sunrise and sunset times
                     //System.out.println("Sunrise time: " + sdf.format(sunriseDate));
                     //System.out.println("Sunset time: " + sdf.format(sunsetDate));
-
-
-
 
 
 
@@ -169,16 +165,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-
-
                     //setText the data
                     a.setText(df.format(xtemp) + "°c");
                     b.setText(weatherDescription);
-                    c.setText(String.valueOf(df.format(windSpeed)) + " Km/h");
+                    c.setText((df.format(windSpeed)) + " Km/h");
                     d.setText(windDirection);
                     e.setText(df.format(humidity) + "%");
                     f.setText(df.format(pressure) + " mb");
-                    g.setText(String.valueOf(visibilityObject1) + " km");
+                    g.setText((visibilityObject1) + " km");
                     h.setText(sdf.format(sunriseDate));
                     i.setText(sdf.format(sunsetDate));
 
