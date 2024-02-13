@@ -138,21 +138,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                     // Convert timestamps to Date objects
-                    Date sunriseDate = new Date(sunrise1 * 1000);
+                    Date sunriseDate = new Date(sunrise1 * 1000L);
                     Log.d("tj", String.valueOf(sunriseDate));
-                    Date sunsetDate = new Date (sunset1 * 1000);
+                    Date sunsetDate = new Date (sunset1 * 1000L);
 
 
 
                     // Format the dates for display
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a", Locale.getDefault());
                     Log.d("sdf", sdf.format(sunsetDate));
 
 
-
-                    // Print the formatted sunrise and sunset times
-                    //System.out.println("Sunrise time: " + sdf.format(sunriseDate));
-                    //System.out.println("Sunset time: " + sdf.format(sunsetDate));
 
 
 
