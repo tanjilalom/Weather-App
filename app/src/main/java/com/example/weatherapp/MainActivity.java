@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
@@ -26,18 +25,16 @@ import org.json.JSONObject;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView a, b, c, d, e, f, g, h, i, j;
+    TextView a, b, c, d, e, f, g, h, i;
 
     int[] img = {
             R.drawable.humidity, R.drawable.thermometer, R.drawable.wind,};
     EditText cityid;
-    RecyclerView recycleviewid;
     Button getinfo;
     private final String url = "https://api.openweathermap.org/data/2.5/weather";
     //private final String url = "https://disease.sh/v3/covid-19/all";
