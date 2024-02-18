@@ -32,7 +32,6 @@ public class Spachscreen extends AppCompatActivity {
         });
 
         thread.start();
-
     }
 
     private void startup() {
@@ -44,7 +43,6 @@ public class Spachscreen extends AppCompatActivity {
 
     private void doWork() {
 
-
         for (progress= 0; progress<=100; progress = progress + 20)
         {
             try {
@@ -55,7 +53,5 @@ public class Spachscreen extends AppCompatActivity {
                 throw new RuntimeException(e);
             }
         }
-
-
     }
 }
