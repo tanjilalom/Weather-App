@@ -26,6 +26,7 @@
             android:layout_marginBottom="10dp"
             android:hint="City Name"
             android:textStyle="bold"
+            android:fontFamily="@font/inter"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -44,6 +45,7 @@
             android:layout_marginBottom="30dp"
             android:text="Get info"
             android:textColor="@color/black"
+            android:fontFamily="@font/inter"
             />
 
     </LinearLayout>
